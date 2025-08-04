@@ -1,14 +1,20 @@
 name: Scrape and Rewrite News
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Cada 15 minutos
-  workflow_dispatch:  # Permite ejecución manual
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+# Añade esto:
+permissions:
+  contents: write  # Permite hacer push al repositorio
 
 jobs:
   scrape-and-rewrite:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Token automático de GitHub
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
