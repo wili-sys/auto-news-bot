@@ -1,7 +1,7 @@
 name: Scrape and Rewrite News
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 # Añade esto:
